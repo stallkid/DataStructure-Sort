@@ -1,0 +1,40 @@
+import quicksort as qs
+import bubblesort as bs
+import selectionsort as ss
+import numpy
+import time
+
+ls = numpy.random.randint(1000, size=100)
+
+# print(ls)
+print("*******************************************")
+print("QuickSort ")
+t1 = time.time()
+qs.quickSort(ls, asc=True)
+t2 = time.time()
+print("Cres: ", (t2 - t1))
+t1 = time.time()
+qs.quickSort(ls, asc=False)
+t2 = time.time()
+print("Desc: ", (t2 - t1))
+print("*******************************************")
+print("BubbleSort ")
+t1 = time.time()
+bs.bubble_sort(ls, asc=True)
+t2 = time.time()
+print("Cres: ", (t2 - t1))
+t1 = time.time()
+bs.bubble_sort(ls, asc=False)
+t2 = time.time()
+print("Desc: ", (t2 - t1))
+print("*******************************************")
+print("SelectionSort ")
+t1 = time.time()
+ss.selectionSort(ls, asc=True)
+t2 = time.time()
+print("Cres: ", (t2 - t1))
+t1 = time.time()
+ss.selectionSort(ls, asc=False)
+t2 = time.time()
+print("Desc: ", (t2 - t1))
+print("*******************************************")

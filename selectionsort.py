@@ -1,23 +1,36 @@
+import numpy
+import time
+
 def selectionSort(alist, asc=True):
-   for fillslot in range(len(alist)-1, 0, -1):
-       positionOfMax = 0
-       for location in range(1, fillslot+1):
+   for i in range(len(alist)):
+      # Find the minimum element in remaining
+       minPosition = i
+       for j in range(i+1, len(alist)):
            if asc:
-               if alist[location] > alist[positionOfMax]:
-                    positionOfMax = location
+               if alist[minPosition] > alist[j]:
+                   minPosition = j
            else:
-               if alist[location] < alist[positionOfMax]:
-                    positionOfMax = location
+                if alist[minPosition] < alist[j]:
+                   minPosition = j
+       # Swap the found minimum element with minPosition
+       temp = alist[i]
+       alist[i] = alist[minPosition]
+       alist[minPosition] = temp
 
-       temp = alist[fillslot]
-       alist[fillslot] = alist[positionOfMax]
-       alist[positionOfMax] = temp
-
-       return alist
+   return alist
 
 
-ls = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+# ls = numpy.random.randint(1000, size=100)
 
-print(selectionSort(ls, asc=True))
-print(selectionSort(ls, asc=False))
-# print(alist)
+# t1 = time.time()
+# print("\n Ordem Randômica: ", ls)
+# t2 = time.time()
+# print("Randomico: ", (t2 - t1))
+# t3 = time.time()
+# print("\n Ordem Crescente: ", selectionSort(ls, asc=True))
+# t4 = time.time()
+# print("Crescente: ", t4 - t3)
+# t5 = time.time()
+# print("\n Ordem Descrescente: ", selectionSort(ls, asc=False))
+# t6 = time.time()
+# print("Decrescente: ", (t6 - t5))

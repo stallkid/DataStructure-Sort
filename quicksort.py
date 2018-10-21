@@ -3,7 +3,7 @@ import numpy
 import time
 
 
-def quickSort(L, ascending=True):
+def quickSort(L, asc=True, sortTime=False):
     if len(L) <= 1:
         return L
     smaller, equal, larger = [], [], []
@@ -17,26 +17,26 @@ def quickSort(L, ascending=True):
         else:
             larger.append(x)
 
-    larger = quickSort(larger, ascending=ascending)
-    smaller = quickSort(smaller, ascending=ascending)
+    larger = quickSort(larger, asc=asc)
+    smaller = quickSort(smaller, asc=asc)
 
-    if ascending:
+    if asc:
         final = smaller + equal + larger
     else:
         final = larger + equal + smaller
+
     return final
 
-
-l2 = numpy.random.randint(100, size=10)
-t1 = time.time()
-print("\n Ordem Randômica: ", l2)
-t2 = time.time()
-print("Randomico: ", (t2 - t1))
-t3 = time.time()
-print("\n Ordem Crescente: ", quickSort(l2, ascending=True))
-t4 = time.time()
-print("Crescente: ", t4 - t3)
-t5 = time.time()
-print("\n Ordem Descrescente: ", quickSort(l2, ascending=False))
-t6 = time.time()
-print("Decrescente: ", (t6 - t5))
+# l2 = numpy.random.randint(1000, size=100)
+# t1 = time.time()
+# print("\n Ordem Randômica: ", l2)
+# t2 = time.time()
+# print("Randomico: ", (t2 - t1))
+# t3 = time.time()
+# print("\n Ordem Crescente: ", quickSort(l2, asc=True, sortTime=False))
+# t4 = time.time()
+# print("Crescente: ", t4 - t3)
+# t5 = time.time()
+# print("\n Ordem Descrescente: ", quickSort(l2, asc=False, sortTime=False))
+# t6 = time.time()
+# print("Decrescente: ", (t6 - t5))
